@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Duo Device Check — Training Demo</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#fff;color:#222}
+    .wrap{max-width:520px;margin:22px auto;padding:18px}
+    .panel{border-radius:8px;border:1px solid #e6e6e6;box-shadow:0 6px 20px rgba(0,0,0,.06);padding:22px}
+    h1{font-size:20px;margin:6px 0}
+    p{color:#555}
+    .bigbtn{display:block;width:100%;padding:18px;margin-top:18px;border-radius:6px;border:1px solid #cbd5e1;background:#f8fafc;color:#0b3b8c;font-weight:700;font-size:16px;cursor:pointer}
+    .link{display:block;margin-top:12px;color:#0b61c4;text-align:center;text-decoration:underline;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <img src="" alt="" style="height:40px;display:block;margin-bottom:8px">
+      <h1>Is this your device?</h1>
+      <p>If you're the only person who uses this device, Duo will remember it for future logins.</p>
+
+      <button class="bigbtn" id="yesBtn">Yes, this is my device</button>
+      <a id="noLink" class="link">No, other people use this device</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('yesBtn').addEventListener('click', ()=>{
+      // Move to the Duo approval simulation (reuse duo.html)
+      window.location.href = 'duo.html';
+    });
+
+    document.getElementById('noLink').addEventListener('click', ()=>{
+      // Also forward to the Duo approval simulation for training
+      window.location.href = 'duo.html';
+    });
+  </script>
+</body>
+</html>

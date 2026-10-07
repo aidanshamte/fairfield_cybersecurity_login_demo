@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <defs>
+    <style>.s{fill:#c8102e}</style>
+  </defs>
+  <path class="s" d="M60 4c-1 0-2 0-3 0-14 0-26 3-35 10-8 6-12 14-12 24v44c0 15 12 27 27 27h36c15 0 27-12 27-27V38c0-10-4-18-12-24-9-7-21-10-35-10-1 0-2 0-3 0z"/>
+  <rect x="30" y="18" width="60" height="18" fill="#fff" rx="1"/>
+  <text x="60" y="32" font-family="Georgia,serif" font-size="12" fill="#c8102e" text-anchor="middle" font-weight="700">Fairfield University</text>
+  <text x="60" y="80" font-family="Georgia,serif" font-size="44" fill="#fff" text-anchor="middle" font-weight="700">F</text>
+</svg>

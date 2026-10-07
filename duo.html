@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Duo - Fairfield University (Training Demo)</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f3f4f6;color:#222}
+    .bar{background:#c8102e;color:#fff;padding:14px;text-align:center;font-weight:700}
+    .container{padding:18px}
+    .card{background:#fff;max-width:360px;margin:26px auto;padding:18px;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,.08);}
+    h1{font-size:16px;margin:0 0 8px}
+    p{font-size:13px;color:#555}
+    .actions{display:flex;gap:8px;margin-top:14px}
+    button{flex:1;padding:10px 12px;border:0;border-radius:4px;cursor:pointer;font-weight:700}
+    .push{background:#1595d3;color:#fff}
+    .approve{background:#2bb673;color:#fff}
+    .deny{background:#e14a4a;color:#fff}
+    .small{font-size:12px;color:#777;margin-top:10px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="bar">Duo Security — Fairfield University</div>
+  <div class="container">
+    <div class="card" role="dialog" aria-label="Duo verification simulation">
+      <h1>Verify with Duo</h1>
+      <p>This is a simulated Duo verification window used for training. No real authentication occurs.</p>
+
+      <div class="actions">
+        <button class="push" id="sendPush">Send Me a Push</button>
+        <button class="approve" id="approve">Approve</button>
+      </div>
+
+      <div class="actions" style="margin-top:10px">
+        <button class="deny" id="deny">Deny</button>
+      </div>
+
+      <div class="small">After you click <strong>Approve</strong>, this window will close and the training page will show the result.</div>
+    </div>
+  </div>
+
+  <script>
+    const sendPush = document.getElementById('sendPush');
+    const approve = document.getElementById('approve');
+    const deny = document.getElementById('deny');
+
+    function notifyOpener(msg){
+      try{
+        if(window.opener && !window.opener.closed && typeof window.opener.showToast === 'function'){
+          window.opener.showToast(msg);
+        }
+      }catch(e){/* ignore cross-origin in real pages; safe in training demo */}
+    }
+
+    sendPush.addEventListener('click', ()=>{
+      notifyOpener('Duo push sent (simulated).');
+    });
+
+    approve.addEventListener('click', ()=>{
+      notifyOpener('Duo approved — training complete.');
+      window.close();
+    });
+
+    deny.addEventListener('click', ()=>{
+      notifyOpener('Duo denied (simulated).');
+      window.close();
+    });
+  </script>
+</body>
+</html>
