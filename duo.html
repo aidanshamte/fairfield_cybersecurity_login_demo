@@ -26,9 +26,15 @@
       <h1>Verify with Duo</h1>
       
       <div class="actions">
+        <button class="push" id="sendPush">Send Me a Push</button>
         <button class="approve" id="approve">Approve</button>
       </div>
 
+      <div class="actions" style="margin-top:10px">
+        <button class="deny" id="deny">Deny</button>
+      </div>
+
+      <div class="small">After you click <strong>Approve</strong>, this window will close and the training page will show the result.</div>
     </div>
   </div>
 
@@ -46,7 +52,9 @@
     }
 
     sendPush.addEventListener('click', ()=>{
-      notifyOpener('Duo push sent (simulated).');
+      //I want when the user clicks approve to open another MFA page where user enters the 6 codes from his duo mobile app and then when he clicks submit it will show a message that says "Duo approved (simulated)" and then close the window.
+      window.location.href = './MFA.html';
+      notifyOpener('Duo approved (simulated).');
     });
 
     approve.addEventListener('click', ()=>{
