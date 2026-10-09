@@ -1,0 +1,14 @@
+{
+  "name": "fairfield_cybersecurity_login_demo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.16.5",
+    "@azure/storage-blob": "^12.34.0"
+  },
+  "main": "src/{index.js,functions/*.js}"
+}
