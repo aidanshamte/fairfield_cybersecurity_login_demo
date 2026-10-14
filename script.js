@@ -100,8 +100,12 @@ passwordForm.addEventListener('submit', (e) => {
 
 document.querySelectorAll(".links a").forEach((link) => {
   link.addEventListener("click", (event) => {
-    event.preventDefault();
-    showToast(link.dataset.demo);
+    // Allow normal navigation for links with real destinations.
+    const href = link.getAttribute("href");
+
+    if (!href || href === "#") {
+      event.preventDefault();
+    }
   });
 });
 
