@@ -140,7 +140,7 @@
       >
 
       <div id="error" class="error">
-        Please enter a valid six-digit training code.
+        Please enter a valid six-digit code from your Duo Mobile app.
       </div>
 
       <button type="submit">
@@ -154,35 +154,34 @@
   
   </main>
 
-  <script>
-    const form = document.getElementById("mfaForm");
-    const codeInput = document.getElementById("code");
-    const error = document.getElementById("error");
-    const success = document.getElementById("success");
+<script>
+  const form = document.getElementById("mfaForm");
+  const codeInput = document.getElementById("code");
+  const error = document.getElementById("error");
 
-    codeInput.addEventListener("input", () => {
-      codeInput.value = codeInput.value
-        .replace(/\D/g, "")
-        .slice(0, 6);
+  codeInput.addEventListener("input", () => {
+    codeInput.value = codeInput.value
+      .replace(/\D/g, "")
+      .slice(0, 6);
 
-      error.style.display = "none";
-    });
+    error.style.display = "none";
+  });
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-      const code = codeInput.value.trim();
+    const code = codeInput.value.trim();
 
-      if (!/^\d{6}$/.test(code)) {
-        error.style.display = "block";
-        return;
-      }
+    if (!/^\d{6}$/.test(code)) {
+      error.style.display = "block";
+      return;
+    }
 
-      
-      success.style.display = "block";
-      form.style.display = "none";
-    });
-  </script>
+    // Redirect to zone.html after submission
+    window.location.href = "Phished.html";
+  });
+</script>
+
 
 </body>
 </html>
