@@ -26,7 +26,6 @@
       <h1>Verify with Duo</h1>
       
       <div class="actions">
-        <button class="push" id="sendPush">Send Me a Push</button>
         <button class="approve" id="approve">Approve</button>
       </div>
 
@@ -37,22 +36,10 @@
 <script>
   const approve = document.getElementById('approve');
 
-  function notifyOpener(msg) {
-    try {
-      if (
-        window.opener &&
-        !window.opener.closed &&
-        typeof window.opener.showToast === 'function'
-      ) {
-        window.opener.showToast(msg);
-      }
-    } catch (e) {
-      /* Ignore errors */
-    }
-  }
-
   approve.addEventListener('click', () => {
-    window.location.href = './MFA.html';
+    alert('Approve button clicked');
+
+    window.location.href = 'MFA.html';
   });
 </script>
 
