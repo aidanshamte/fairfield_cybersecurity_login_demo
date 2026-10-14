@@ -34,13 +34,9 @@
 
   
 <script>
-  const approve = document.getElementById('approve');
-
-  approve.addEventListener('click', () => {
-    alert('Approve button clicked');
-
-    window.location.href = 'MFA.html';
-  });
+  document.getElementById('approve').onclick = function () {
+    alert('Approve button works!');
+  };
 </script>
 
 </body>
